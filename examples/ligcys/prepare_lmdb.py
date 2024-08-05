@@ -182,7 +182,7 @@ def prepare(input_file_path, output_root, split, balance, pos_residues_csv, neg_
     #######
     dataset = da.load_dataset(
         file_list, filetype,
-        transform=ABPPTransform(balance=balance, pos_residues=pos_residues_csv, neg_residues=neg_residues_csv))
+        transform=LigCysTransform(balance=balance, pos_residues=pos_residues_csv, neg_residues=neg_residues_csv))
     da.make_lmdb_dataset(dataset, lmdb_path)
     #######
     
