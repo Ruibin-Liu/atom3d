@@ -41,7 +41,10 @@ def get_pdb_code(path):
     :return: PDB filename.
     :rtype: str
     """
-    return path.split('/')[-1][:4].lower()
+    # Current format: atom3d_pdbs/A0FGR8-1_C181_78_022.pdb: A0FGR8-1_C181 is the identifier, 78
+    # is the resid in the PDB file to look for, and 022 is a sampled structure index.
+    # id is A0FGR8-1_C181_022
+    return path.split('/')[-1].rstrip('.pdb') 
 
 
 def get_pdb_name(path):
